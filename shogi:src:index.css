@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --button-outline: rgba(61, 43, 31, .10);
+  --badge-outline: rgba(61, 43, 31, .05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(61, 43, 31, .03);
+  --elevate-2: rgba(61, 43, 31, .08);
+
+  /* Warm parchment background */
+  --background: 42 50% 90%;
+  --foreground: 22 32% 18%;
+
+  /* Dark wood border */
+  --border: 33 39% 59%;
+
+  /* Lighter wood cards */
+  --card: 38 52% 84%;
+  --card-foreground: 22 32% 18%;
+  --card-border: 33 39% 59%;
+
+  --sidebar: 38 52% 84%;
+  --sidebar-foreground: 22 32% 18%;
+  --sidebar-border: 33 39% 59%;
+  --sidebar-primary: 29 53% 36%;
+  --sidebar-primary-foreground: 42 50% 90%;
+  --sidebar-accent: 33 39% 59%;
+  --sidebar-accent-foreground: 22 32% 18%;
+  --sidebar-ring: 29 53% 36%;
+
+  --popover: 38 52% 84%;
+  --popover-foreground: 22 32% 18%;
+  --popover-border: 33 39% 59%;
+
+  /* Rich Amber */
+  --primary: 29 53% 36%;
+  --primary-foreground: 42 50% 90%;
+
+  /* Secondary wood */
+  --secondary: 33 39% 59%;
+  --secondary-foreground: 22 32% 18%;
+
+  --muted: 38 30% 75%;
+  --muted-foreground: 22 32% 40%;
+
+  --accent: 33 39% 59%;
+  --accent-foreground: 22 32% 18%;
+
+  --destructive: 0 60% 45%;
+  --destructive-foreground: 42 50% 90%;
+
+  --input: 33 39% 59%;
+  --ring: 29 53% 36%;
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: 'Noto Serif JP', 'Shippori Mincho', Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.25rem;
+
+  --shadow-2xs: 0px 2px 0px 0px rgba(61, 43, 31, 0.1);
+  --shadow-xs: 0px 2px 0px 0px rgba(61, 43, 31, 0.1);
+  --shadow-sm: 0px 2px 0px 0px rgba(61, 43, 31, 0.1), 0px 1px 2px -1px rgba(61, 43, 31, 0.1);
+  --shadow: 0px 2px 0px 0px rgba(61, 43, 31, 0.1), 0px 1px 2px -1px rgba(61, 43, 31, 0.1);
+  --shadow-md: 0px 2px 0px 0px rgba(61, 43, 31, 0.1), 0px 2px 4px -1px rgba(61, 43, 31, 0.1);
+  --shadow-lg: 0px 2px 0px 0px rgba(61, 43, 31, 0.1), 0px 4px 6px -1px rgba(61, 43, 31, 0.1);
+  --shadow-xl: 0px 2px 0px 0px rgba(61, 43, 31, 0.1), 0px 8px 10px -1px rgba(61, 43, 31, 0.1);
+  --shadow-2xl: 0px 2px 0px 0px rgba(61, 43, 31, 0.1);
+}
+
+.dark {
+  /* No dark mode for this traditional wooden vibe, but fallback variables included */
+  --background: 22 32% 18%;
+  --foreground: 42 50% 90%;
+  --border: 33 39% 30%;
+  --card: 22 32% 15%;
+  --card-foreground: 42 50% 90%;
+  --card-border: 33 39% 30%;
+  --primary: 29 53% 50%;
+  --primary-foreground: 22 32% 18%;
+  --secondary: 33 39% 30%;
+  --secondary-foreground: 42 50% 90%;
+  --muted: 22 32% 25%;
+  --muted-foreground: 38 30% 65%;
+  --accent: 33 39% 30%;
+  --accent-foreground: 42 50% 90%;
+  --destructive: 0 50% 40%;
+  --destructive-foreground: 42 50% 90%;
+  --input: 33 39% 30%;
+  --ring: 29 53% 50%;
+  --popover: 22 32% 15%;
+  --popover-foreground: 42 50% 90%;
+  --popover-border: 33 39% 30%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-serif antialiased bg-background text-foreground;
+  }
+}
