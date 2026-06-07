@@ -27,7 +27,7 @@ if (!basePath) {
 }
 
 export default defineConfig({
-  base: basePath,
+  base: process.env.BASE_PATH || '/browser-shogi/',
   plugins: [
     react(),
     tailwindcss(),
