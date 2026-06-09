@@ -2,10 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,16 +15,19 @@ jobs:
         with:
           node-version: '20'
       
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
+      
       - name: Install dependencies
-        run: npm install
+        run: cd shogi && pnpm install
       
       - name: Build
-        run: npm run build
+        run: cd shogi && pnpm run build
         env:
           BASE_PATH: /browser-shogi2/
       
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./shogi/dist
